@@ -406,7 +406,7 @@
     async function fetchUserTx(id) {
       const response = await $.ajax({
         type: "GET",
-        url: "https://excelmarktrade-server.onrender.com/"//`http://localhost:8080/transactions/${id}/deposit/history`,
+        url: "https://expressminning.onrender.com/"//`http://localhost:8080/transactions/${id}/deposit/history`,
         dataType: "json",
         timeout: 30000,
       });
@@ -446,7 +446,7 @@ async function depositFnc(dataObj) {
 
 await $.ajax({
   type: "POST",
-  url: `https://excelmarktrade-server.onrender.com/transactions/${dataObj.userId}/withdrawal`,
+  url: `https://expressminning.onrender.com/transactions/${dataObj.userId}/withdrawal`,
   dataType: "json",
   data: { ...dataObj },
   timeout: 30000,
