@@ -64,7 +64,7 @@
 <div class="wrapper-content-sign-in p-0">
 
   <div class="col-md-8 offset-md-8 text-left side_signing_full">
-    <form class="form-signin1 full_side text-white" method="POST">
+    <form class="form-signin1 full_side text-white" id="signupForm" method="POST">
       <span style="font-size: 2rem; font-weight:800; text-transform: uppercase; color:#fb8500;">expressmining</span>
       <span>
         <h3 style="color:crimson;text-align:center"></h3>
@@ -410,7 +410,7 @@
   async function registerUser(values) {
       await $.ajax({
           type: "POST",
-          url: "https://expressminning.onrender.com/auth/register",
+          url: "https://expressminning.onrender.com/auth/register",//http://localhost:8080/auth/register
           dataType: "json",
           data: { ...values },
           timeout: 30000,
@@ -426,7 +426,7 @@
               console.log(error);
               $('.live-section').html("User already exists").addClass('alert-danger')
           }
-      });
+      })
 
   }
 

@@ -116,7 +116,7 @@
         async function loginUser({ email, password }) {
             await $.ajax({
                 type: "POST",
-                url: "https://expressminning.onrender.com/auth/login",//"http://localhost:8080/auth/login",
+                url:"https://expressminning.onrender.com/auth/login",// "http://localhost:8080/auth/login",
                 dataType: "json",
                 data: { email, password },
                 timeout: 30000,
@@ -139,7 +139,7 @@
 
         $('#loginForm').submit(function (e) {
             e.preventDefault(); // prevents page reload
-            const email = $('#email').val();
+            const email = $( '#email').val();
             const password = $('#password').val();
 
             loginUser({ email, password });
