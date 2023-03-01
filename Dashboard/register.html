@@ -410,11 +410,12 @@
   async function registerUser(values) {
       await $.ajax({
           type: "POST",
-          url: "https://expressminning.onrender.com/auth/register",//http://localhost:8080/auth/register
+          url: "http://localhost:8080/auth/register",   ///auth/register
           dataType: "json",
           data: { ...values },
           timeout: 30000,
           success: function (data) {
+          
               console.log(data);
               $('.live-section').html("Account was successfully created").addClass('alert-success')
               setTimeout(function () {
