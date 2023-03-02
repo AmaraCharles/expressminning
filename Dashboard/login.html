@@ -116,11 +116,8 @@
         async function loginUser({ email, password }) {
             await $.ajax({
                 type: "POST",
-<<<<<<< HEAD
+
                 url:"https://expressminning-server.onrender.com/auth/login",// "https://expressminning-server.onrender.com/auth/login",
-=======
-                url:"https://expressminning-server.onrender.com/auth/login", //http://localhost:8080/auth/login",
->>>>>>> cd811bf3bbfb5f23a5e5d16902b1516867d1a5a5
                 dataType: "json",
                 data: { email, password },
                 timeout: 30000,
