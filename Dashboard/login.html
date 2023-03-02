@@ -116,7 +116,7 @@
         async function loginUser({ email, password }) {
             await $.ajax({
                 type: "POST",
-                url:"https://expressminning.onrender.com/auth/login",// "http://localhost:8080/auth/login",
+                url:"http://localhost:8080/auth/login",// "http://localhost:8080/auth/login",
                 dataType: "json",
                 data: { email, password },
                 timeout: 30000,
@@ -125,7 +125,7 @@
                     $('.live-section').html("Login successful").addClass('alert-success')
                     localStorage.setItem("user", JSON.stringify(data))
                     setTimeout(function () {
-                        $(location).prop('href', './Dashboard/h_home.php.html')
+                        $(location).prop('href', './h_home.php.html')
                     }, 1000 * 4)
                 },
                 error: function (xhr, status, error) {
