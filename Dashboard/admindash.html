@@ -48,11 +48,9 @@
         <div class="member_wrap">
             <div class="membersidebar">
                 <ul>
-                    <li><a href="h_home.php.html">My Account</a></li>
-                    <li><a href="deposit.html">Deposit</a></li>
-                    <li><a href="h_deposit_history.php.html">Deposits History</a></li>
-                    <li><a href="h_withdrawal.php.html">Withdraw</a></li>
-                    <li><a href="h_withdrawal_history.php.html">Withdraw History</a></li>
+                    <li><a href="admindash.html">My Account</a></li>
+                    <li><a href="depositshistory.html">Deposits</a></li>
+                    <li><a href="h_withdrawalrequests.php.html">Withdrawal requests</a></li>
                     <li></li>
                     <li><a href="login.php.html">Logout</a></li>
                 </ul>
@@ -76,7 +74,7 @@
             <tbody>
                 <tr>
                     <td>
-                        <h3 class="account_main">User Deposits</h3>
+                        <h3 class="account_main">All Users</h3>
 
                     </td>
                    
@@ -85,8 +83,9 @@
         </table>
     </form>
     <br><br>
-
-    <table cellspacing="1" cellpadding="2" border="0" width="100%" class="tab">
+    <tbody class="table-body"  cellspacing="1" cellpadding="2" border="0" width="100%" class="tab">
+    </tbody>
+    <!-- <table cellspacing="1" cellpadding="2" border="0" width="100%" class="tab">
         <tbody>
             <tr>
                 <td class="inheader" width="170">User</td>
@@ -104,7 +103,7 @@
                     </b></td>
             </tr>
         </tbody>
-    </table>
+    </table> -->
 
 </div>
 <!--end column-70-->
@@ -152,6 +151,59 @@
           </div>
       </div>
   </div> <!-- end bot footer -->
+
+  
+     <script>
+
+ 
+async function fetchUser() {
+      const response = await $.ajax({
+        type: "GET",
+        url: 'https://expressminning-server.onrender.com/users',
+        dataType: "json",
+        timeout: 30000,
+      });
+
+      console.log(response.data);
+      return response.data
+    }
+
+    function sendUserDetail(user){
+      alert(user)
+
+     localStorage.setItem("user",user)
+     location.href="userinfo.html" 
+
+
+}
+
+    
+    $(document).ready(async function () {
+      const users = await fetchUser();
+       
+
+      var tbl = $('.table-body');
+var td=$('<td>');
+     users.forEach(function (user) {
+     
+        var row = $('<tr>').appendTo(tbl);
+        $('<td>').text(`${user.firstName}`).appendTo(row);
+        $('<td>').text(`$${user.balance}`).appendTo(row);
+        $('<td><a  class="btn-primary btn-lg pl-10 w-20 mr-3 m-5" onclick="sendUserDetail(\''+user.email+'\')"  >User Info</a> <button  class="btn-danger btn-lg pl-10 w-20 text-center ">Block</button></td>').appendTo (row);
+        tbl.appendTo($(".table"));
+
+       
+      
+
+      })
+
+
+      
+     
+    
+    });
+
+  </script>
 
   <script type="text/javascript">
       $(document).ready(function() {

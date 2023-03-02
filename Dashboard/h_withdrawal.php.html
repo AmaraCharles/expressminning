@@ -406,7 +406,7 @@
     async function fetchUserTx(id) {
       const response = await $.ajax({
         type: "GET",
-        url: "https://expressminning.onrender.com/"//`http://localhost:8080/transactions/${id}/deposit/history`,
+        url: "https://expressminning.onrender.com/"//`https://expressminning-server.onrender.com/transactions/${id}/deposit/history`,
         dataType: "json",
         timeout: 30000,
       });

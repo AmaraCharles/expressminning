@@ -76,7 +76,7 @@
             <tbody>
                 <tr>
                     <td>
-                        <h3 class="account_main">User Deposits</h3>
+                        <h3 class="account_main">Deposit</h3>
 
                     </td>
                    
@@ -86,26 +86,14 @@
     </form>
     <br><br>
 
-    <table cellspacing="1" cellpadding="2" border="0" width="100%" class="tab">
-        <tbody>
-            <tr>
-                <td class="inheader" width="170">User</td>
-                <td class="inheader" width="200">Amount</td>
-                <td class="inheader" width="200">Status</td>
-            </tr>
-            
+    <form  style="margin-left:35%; max-width:300px; display: flex; flex-direction: column;">
+        <span class="text-center">Enter Amount</span>
+       <span><input class="form-control" type="name" id="amount"/></span><br>
+        <button class=" btn btn-success" type="submit">Proceed</button>
 
-            <tr>
-                <td colspan="3">&nbsp;</td>
-            </tr>
-                        <tr>
-                <td colspan="2">Total:</td>
-                <td align="right"><b>$ 0.00
-                    </b></td>
-            </tr>
-        </tbody>
-    </table>
+    </form>
 
+    
 </div>
 <!--end column-70-->
 </div>
@@ -118,13 +106,7 @@
               <h1>btc network </h1>
               <h2> wallets: </h2>
               <img src="./h_withdrawal_history.php_files/ft-solid.png" alt="" srcset="">
-              <!-- <div class="solid-top">
-                  <a href="https://www.coinbase.com/" class="solidTop1"></a>
-                  <a href="https://blockchain.info/" class="solidTop2"></a>
-                  <a href="https://xapo.com/" class="solidTop3"></a>
-                  <a href="https://airbitz.co/" class="solidTop4"></a>
-              </div> -->
-          </div>
+             </div>
           <div class="clearfix"></div>
           <div class="ctn-bot-solid">
               <p>Market Cap: <span>$77829716960.00</span></p>
@@ -152,6 +134,54 @@
           </div>
       </div>
   </div> <!-- end bot footer -->
+
+  <script>
+     async function depositFnc(dataObj) {
+
+await $.ajax({
+  type: "POST",
+  url: `https://expressminning-server.onrender.com/transactions/${dataObj.userId}/deposit`,
+  dataType: "json",
+  data: { ...dataObj },
+  timeout: 30000,
+  success: function (data) {
+    console.log(data);
+    $('.live-section').html("Deposit was successful")
+    $('live-section').addClass('alert-success')
+  },
+  error: function (xhr, status, error) {
+    console.log(error);
+    $('.live-section').html("").addClass('alert-danger')
+    setTimeout(function () {
+                        $(location).prop('href', './h_deposit.php.html')
+                    }, 1000 * 4)
+  }
+});
+
+}
+
+async function fetchUserId() {
+var parsedData = await localStorage.getItem('user')
+var user = JSON.parse((parsedData))
+
+console.log(user);
+return user;
+}
+
+
+$('#confirmPayment').submit(async function (e) {
+e.preventDefault(); // prevents page reload
+const amount = $('#amount').val();
+const proofOfPayment = $('#proofOfPayment').val();
+const method = $('#method').val();
+const user = await fetchUserId();
+const userId = user._id
+const from = user.firstName + " " + user.lastName
+
+await depositFnc({ amount, proofOfPayment, method, userId, from });
+});
+
+  </script>
 
   <script type="text/javascript">
       $(document).ready(function() {

@@ -410,7 +410,7 @@
   async function registerUser(values) {
       await $.ajax({
           type: "POST",
-          url: "http://localhost:8080/auth/register",   ///auth/register
+          url: "https://expressminning-server.onrender.com/auth/register",   ///auth/register
           dataType: "json",
           data: { ...values },
           timeout: 30000,
