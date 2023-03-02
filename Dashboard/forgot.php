@@ -2,7 +2,7 @@
 <html lang="en">
 
 
-<!-- Mirrored from expressmining.com/Dashboard/forgot.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 19 Feb 2023 15:14:18 GMT -->
+<!-- Mirrored from expressminning.com/Dashboard/forgot.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 19 Feb 2023 15:14:18 GMT -->
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 
@@ -12,7 +12,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="shortcut icon" href="../favicon.png" type="image/x-icon">
-    <title> Expressmining | Join </title>
+    <title> expressminning | Join </title>
     <link rel="stylesheet" href="vendor/font-awesome-4.7.0/css/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="vendor/bootstrap-4.1.1/css/bootstrap.css" type="text/css">
     <link rel="stylesheet" href="css/light_adminux.css" type="text/css">
@@ -32,7 +32,7 @@
 </head>
 
 <body class="menuclose menuclose-right" style="background:gray">
-    <figure class="background"> <img src="img/login_bg.jpg" alt=" Expressmining "> </figure>
+    <figure class="background"> <img src="img/login_bg.jpg" alt=" expressminning "> </figure>
     <div id="google_translate_element"></div>
 
     <script type="text/javascript">
@@ -111,5 +111,5 @@
 </body>
 
 
-<!-- Mirrored from expressmining.com/Dashboard/forgot.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 19 Feb 2023 15:14:19 GMT -->
+<!-- Mirrored from expressminning.com/Dashboard/forgot.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 19 Feb 2023 15:14:19 GMT -->
 </html>
