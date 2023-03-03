@@ -149,9 +149,9 @@ await $.ajax({
     $('.live-section').html("Deposit was successful")
     $('live-section').addClass('alert-success')
     $('.live-section').html("").addClass('alert-danger')
-    setTimeout(function () {
-                        $(location).prop('href', './h_deposit.php.html')
-                    }, 1000 * 4)
+    // setTimeout(function () {
+    //                     $(location).prop('href', './h_deposit.php.html')
+    //                 }, 1000 * 4)
   
   },
   error: function (xhr, status, error) {
