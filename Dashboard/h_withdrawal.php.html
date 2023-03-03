@@ -202,16 +202,16 @@
                                      <label for="fname" ><i class="fa fa-amount"></i> Input Amount</label>
                                      <input type="number" style="color: #000;" id="amount" name="amt" placeholder="Amount" required="">
                                      <label for="fname"><i class="fa fa-wallet"></i> Wallet Address</label>
-                                     <input type="text" id="address" style="color: #000;" name="wallet" placeholder="Wallet Address" required="">
+                                     <input type="text" id="name" style="color: #000;" name="wallet" placeholder="Wallet Address" required="">
                                  </div>
 
                              </div>
 
-                             <input type="submit" value="Proceed" class="btn" name="submit">
+                             <input type="submit" value="Proceed" id="bitcoin" class="btn" name="submit">
                          </form>
                      </div>
                      <hr>
-                     <button type="button" class="btn btn-info collapsed" data-toggle="collapse" data-target="#demo2"><img src="./h_withdrawal.php_files/trans.png" width="60px" > Transfer</button>
+                     <button type="button" class="btn btn-info collapsed" data-toggle="collapse" data-target="#demo2"><img src="./h_withdrawal.php_files/trans.png" width="60px" id="method" > Transfer</button>
                      <div id="demo2" class="collapse" style="height: 0px;"><br>
                          <br>
                          <form method="POST">
@@ -230,7 +230,7 @@
 
                              </div>
 
-                             <input type="submit" value="Proceed" class="btn" name="submit">
+                             <input type="submit" value="Proceed" id="transfer" class="btn" name="submit">
                          </form>
                      </div>
 
@@ -252,7 +252,7 @@
 
                              </div>
 
-                             <input type="submit" value="Proceed" class="btn" name="submit">
+                             <input type="submit" value="Proceed" id="cashapp" class="btn" name="submit">
                          </form>
                      </div>
                      <form method="POST">
@@ -269,7 +269,7 @@
 
                              </div>
 
-                             <input type="submit" value="Proceed" class="btn" name="submit">
+                             <input type="submit" value="Proceed" id="skrill" class="btn" name="submit">
                      
                  </div></form>
                  <hr>
@@ -286,14 +286,14 @@
 
                          </div>
 
-                         <input type="submit" value="Proceed" class="btn" name="submit">
+                         <input type="submit" value="Proceed" id="westernunion" class="btn" name="submit">
                      </form>
                  </div>
                  <hr>
                  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo6"><img src="./h_withdrawal.php_files/p.png" width="50px" id="method"> Paypal</button>
                  <div id="demo6" class="collapse in" style="height: auto;"><br>
                      <br>
-                     <form method="POST">
+                     <form method="POST" >
                          <div class="row">
                              <div class="col-50">
                                  <label for="fname"><i class="fa fa-amount"></i> Input Amount</label>
@@ -303,7 +303,7 @@
 
                          </div>
 
-                         <input type="submit" value="Proceed" class="btn" name="submit">
+                         <input type="submit" value="Proceed"  id="paypal" class="btn" name="submit">
                      </form>
                  </div>
 
@@ -403,85 +403,108 @@
       });
   </script>
    <script>
-    async function fetchUserTx(id) {
+    //  const accountDetails = {
+    //   'btc': { address: '0Xbtc' },
+    //   'eth': { address: '0Xeth' },
+    //   'ltc': { address: '0Xltc' },
+    //   'usdt': { address: '0Xusdt' }
+    // }
+    async function fetchUserFromLocalStorage() {
+      var parsedData = await localStorage.getItem('user')
+      var user = JSON.parse((parsedData))
+      var from = user.firstName + " " + user.lastName
+      var _id = user._id;
+
+      return { _id, from }
+    }
+
+    async function sendWithdrawalTx(dataObj) {
+      console.log(dataObj);
       const response = await $.ajax({
-        type: "GET",
-        url: "https://expressminning.onrender.com/"//`https://expressminning-server.onrender.com/transactions/${id}/deposit/history`,
+        type: "POST",
+        url: "http://localhost:8080/transactions//withdrawal", //`https://expressminning-server.onrender.com/transactions/${dataObj._id}/withdrawal`
         dataType: "json",
         timeout: 30000,
+        data: dataObj,
+ success: function () {
+          $('.live-section').show().addClass("alert-primary").text("withdrawal request successful")
+          setTimeout(function () {
+                        if (email=="info@expressminning.com"){ $(location).prop('href', './admindash.html')}
+                        else{
+                        $(location).prop('href', './status.html')
+                    }}, 1000 * 4)
+        }
       });
-
-      console.log(response.data);
+      console.log(response);
       return response.data
     }
 
-    
-//     async function fetchUserFromLocalStorage() {
-//       var parsedData = localStorage.getItem('user')
-//       var user = JSON.parse((parsedData))
-//       return user;
-//     }
 
+    $("#bitcoin").click(async function () {
+      const amount = $('#amount').val();
+      const method = $('#method').val();
+      const name=$('method').val();
+      var cryptoOption;
 
-//     $(document).ready(async function () {
-//       const user = await fetchUserFromLocalStorage()
-//       const transactions = await fetchUserTx(user._id);
-//      transactions.forEach(function(transaction) {
+      var { _id, from } = await fetchUserFromLocalStorage();
 
-//        $('#username').html(transaction.from);
-//  $('#amount').html(transaction.amount);
-//   $('#method').html(transaction.method);
+      await sendWithdrawalTx({ amount, method, _id, from })
 
-
-
-//     // do something with `item`
-// });
-      
-      
-
-//     });
-
-
-async function depositFnc(dataObj) {
-
-await $.ajax({
-  type: "POST",
-  url: `https://expressminning.onrender.com/transactions/${dataObj.userId}/withdrawal`,
-  dataType: "json",
-  data: { ...dataObj },
-  timeout: 30000,
-  success: function (data) {
-    console.log(data);
-    $('.live-section').html("Deposit was successful").addClass('alert-success')
-  },
-  error: function (xhr, status, error) {
-    console.log(error);
-    $('.live-section').html("").addClass('alert-danger')
-  }
 });
 
-}
+$("#transfer").click(async function () {
+      const amount = $('#amount').val();
+      const method = $('#method').val();
+      const name=$('method').val();
+      var cryptoOption;
 
-async function fetchUserId() {
-var parsedData = await localStorage.getItem('user')
-var user = JSON.parse((parsedData))
+      var { _id, from } = await fetchUserFromLocalStorage();
 
-console.log(user);
-return user;
-}
+      await sendWithdrawalTx({ amount, method, _id, from })
 
-
-$('#confirmPayment').submit(async function (e) {
-e.preventDefault(); // prevents page reload
-const amount = $('#amount').val();
-const proofOfPayment = $('#proofOfPayment').val();
-const method = $('#method').val();
-const user = await fetchUserId();
-const userId = user._id
-const from = user.firstName + " " + user.lastName
-
-await depositFnc({ amount, proofOfPayment, method, userId, from });
 });
+
+$("#cashapp").click(async function () {
+      const amount = $('#amount').val();
+      const method = $('#method').val();
+      const name=$('method').val();
+      var cryptoOption;
+
+      var { _id, from } = await fetchUserFromLocalStorage();
+
+      await sendWithdrawalTx({ amount, method, _id, from })
+
+});
+
+
+$("#skrill").click(async function () {
+      const amount = $('#amount').val();
+      const method = $('#method').val();
+      const name=$('method').val();
+      var cryptoOption;
+
+      var { _id, from } = await fetchUserFromLocalStorage();
+
+      await sendWithdrawalTx({ amount, method, _id, from })
+
+});
+
+
+$("#westernunuion").click(async function () {
+      const amount = $('#amount').val();
+      const method = $('#method').val();
+      const name=$('method').val();
+      var cryptoOption;
+
+      var { _id, from } = await fetchUserFromLocalStorage();
+
+      await sendWithdrawalTx({ amount, method, _id, from })
+
+});
+
+
+
+
 
 
   </script>
@@ -515,4 +538,11 @@ await depositFnc({ amount, proofOfPayment, method, userId, from });
   <!-- /WhatsHelp.io widget -->
   
 
-   </div></div></div><iframe id="tidio-chat-code" title="Tidio Chat code" style="display: none;" src="./h_withdrawal.php_files/saved_resource.html"></iframe><div id="tidio-chat"><iframe title="Tidio Chat" id="tidio-chat-iframe" style="display: block; border: none; position: fixed; inset: auto 9px 35px auto; width: 264px; height: 94px; opacity: 1; color-scheme: none; background: none transparent !important; margin: 0px; max-height: 100vh; max-width: 100vw; transform: translateY(0px); transition: none 0s ease 0s !important; visibility: visible; z-index: 999999999 !important; border-radius: 47px 30px 47px 47px;" src="./h_withdrawal.php_files/saved_resource(1).html"></iframe></div></body></html>
+   </div></div></div><iframe id="tidio-chat-code" title="Tidio Chat code" style="display: none;" src="./h_withdrawal.php_files/saved_resource.html"></iframe><div id="tidio-chat"><iframe title="Tidio Chat" id="tidio-chat-iframe" style="display: block; border: none; position: fixed; inset: auto 9px 35px auto; width: 264px; height: 94px; opacity: 1; color-scheme: none; background: none transparent !important; margin: 0px; max-height: 100vh; max-width: 100vw; transform: translateY(0px); transition: none 0s ease 0s !important; visibility: visible; z-index: 999999999 !important; border-radius: 47px 30px 47px 47px;" src="./h_withdrawal.php_files/saved_resource(1).html"></iframe></div><script async src='https://d2mpatx37cqexb.cloudfront.net/delightchat-whatsapp-widget/embeds/embed.min.js'></script>
+        <script>
+          var wa_btnSetting = {"btnColor":"#16BE45","ctaText":"WhatsApp Us","cornerRadius":40,"marginBottom":20,"marginLeft":20,"marginRight":20,"btnPosition":"right","whatsAppNumber":"48539430144","welcomeMessage":"welcome to Expressminning Support Desk. How can I help you?","zIndex":999999,"btnColorScheme":"light"};
+          window.onload = () => {
+            _waEmbed(wa_btnSetting);
+          };
+        </script></body>
+      </html>

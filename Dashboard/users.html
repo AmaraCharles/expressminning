@@ -49,12 +49,13 @@
             <div class="membersidebar">
                 <ul>
                     <li><a href="admindash.html">My Account</a></li>
+                    <li><a href="users.html">Users</a></li>
                     <li><a href="depositshistory.html">Deposits</a></li>
-                    <li><a href="h_withdrawalrequests.php.html">Withdrawal requests</a></li>
+                    <li><a href="withdrawalrequests.php.html">Withdrawal requests</a></li>
                     <li></li>
                     <li><a href="login.php.html">Logout</a></li>
                 </ul>
-
+        
             </div>
 
             <div class="member-container">
@@ -74,240 +75,21 @@
             <tbody>
                 <tr>
                     <td>
-                        <h3 class="account_main">Withdrawal History</h3>
+                        <h3 class="account_main">All Users</h3>
 
                     </td>
-                    <td align="right">
-                        From: <select name="month_from" class="inpts">
-                            <option value="1">Jan
-                            </option>
-                            <option value="2">Feb
-                            </option>
-                            <option value="3">Mar
-                            </option>
-                            <option value="4">Apr
-                            </option>
-                            <option value="5">May
-                            </option>
-                            <option value="6" selected="">Jun
-                            </option>
-                            <option value="7">Jul
-                            </option>
-                            <option value="8">Aug
-                            </option>
-                            <option value="9">Sep
-                            </option>
-                            <option value="10">Oct
-                            </option>
-                            <option value="11">Nov
-                            </option>
-                            <option value="12">Dec
-                            </option>
-                        </select> &nbsp;
-                        <select name="day_from" class="inpts">
-                            <option value="1" selected="">1
-                            </option>
-                            <option value="2">2
-                            </option>
-                            <option value="3">3
-                            </option>
-                            <option value="4">4
-                            </option>
-                            <option value="5">5
-                            </option>
-                            <option value="6">6
-                            </option>
-                            <option value="7">7
-                            </option>
-                            <option value="8">8
-                            </option>
-                            <option value="9">9
-                            </option>
-                            <option value="10">10
-                            </option>
-                            <option value="11">11
-                            </option>
-                            <option value="12">12
-                            </option>
-                            <option value="13">13
-                            </option>
-                            <option value="14">14
-                            </option>
-                            <option value="15">15
-                            </option>
-                            <option value="16">16
-                            </option>
-                            <option value="17">17
-                            </option>
-                            <option value="18">18
-                            </option>
-                            <option value="19">19
-                            </option>
-                            <option value="20">20
-                            </option>
-                            <option value="21">21
-                            </option>
-                            <option value="22">22
-                            </option>
-                            <option value="23">23
-                            </option>
-                            <option value="24">24
-                            </option>
-                            <option value="25">25
-                            </option>
-                            <option value="26">26
-                            </option>
-                            <option value="27">27
-                            </option>
-                            <option value="28">28
-                            </option>
-                            <option value="29">29
-                            </option>
-                            <option value="30">30
-                            </option>
-                            <option value="31">31
-                            </option>
-                        </select> &nbsp;
-
-                        <select name="year_from" class="inpts">
-                            <option value="2014">2014
-                            </option>
-                            <option value="2015">2015
-                            </option>
-                            <option value="2016">2016
-                            </option>
-                            <option value="2017">2017
-                            </option>
-                            <option value="2020">2020
-                            </option>
-                            <option value="2019">2019
-                            </option>
-                            <option value="2020" selected="">2020
-                            </option>
-                        </select><br><img src="./h_withdrawal_history.php_files/q.gif" width="1" height="4"><br>
-
-                        To: <select name="month_to" class="inpts">
-                            <option value="1">Jan
-                            </option>
-                            <option value="2">Feb
-                            </option>
-                            <option value="3">Mar
-                            </option>
-                            <option value="4">Apr
-                            </option>
-                            <option value="5">May
-                            </option>
-                            <option value="6" selected="">Jun
-                            </option>
-                            <option value="7">Jul
-                            </option>
-                            <option value="8">Aug
-                            </option>
-                            <option value="9">Sep
-                            </option>
-                            <option value="10">Oct
-                            </option>
-                            <option value="11">Nov
-                            </option>
-                            <option value="12">Dec
-                            </option>
-                        </select> &nbsp;
-                        <select name="day_to" class="inpts">
-                            <option value="1">1
-                            </option>
-                            <option value="2">2
-                            </option>
-                            <option value="3">3
-                            </option>
-                            <option value="4">4
-                            </option>
-                            <option value="5">5
-                            </option>
-                            <option value="6">6
-                            </option>
-                            <option value="7">7
-                            </option>
-                            <option value="8">8
-                            </option>
-                            <option value="9">9
-                            </option>
-                            <option value="10">10
-                            </option>
-                            <option value="11">11
-                            </option>
-                            <option value="12">12
-                            </option>
-                            <option value="13">13
-                            </option>
-                            <option value="14">14
-                            </option>
-                            <option value="15">15
-                            </option>
-                            <option value="16">16
-                            </option>
-                            <option value="17">17
-                            </option>
-                            <option value="18">18
-                            </option>
-                            <option value="19">19
-                            </option>
-                            <option value="20">20
-                            </option>
-                            <option value="21" selected="">21
-                            </option>
-                            <option value="22">22
-                            </option>
-                            <option value="23">23
-                            </option>
-                            <option value="24">24
-                            </option>
-                            <option value="25">25
-                            </option>
-                            <option value="26">26
-                            </option>
-                            <option value="27">27
-                            </option>
-                            <option value="28">28
-                            </option>
-                            <option value="29">29
-                            </option>
-                            <option value="30">30
-                            </option>
-                            <option value="31">31
-                            </option>
-                        </select> &nbsp;
-
-                        <select name="year_to" class="inpts">
-                            <option value="2014">2014
-                            </option>
-                            <option value="2015">2015
-                            </option>
-                            <option value="2016">2016
-                            </option>
-                            <option value="2017">2017
-                            </option>
-                            <option value="2020">2020
-                            </option>
-                            <option value="2019">2019
-                            </option>
-                            <option value="2020" selected="">2020
-                            </option>
-                        </select>
-
-                    </td>
-                    <td>
-                        &nbsp; <input type="submit" value="Go" class="sbmt">
-                    </td>
+                   
                 </tr>
             </tbody>
         </table>
     </form>
     <br><br>
-
-    <table cellspacing="1" cellpadding="2" border="0" width="100%" class="tab">
+    <tbody class="table-body"  cellspacing="1" cellpadding="2" border="0" width="100%" class="tab">
+    </tbody>
+    <!-- <table cellspacing="1" cellpadding="2" border="0" width="100%" class="tab">
         <tbody>
             <tr>
-                <td class="inheader" width="170">Date</td>
+                <td class="inheader" width="170">User</td>
                 <td class="inheader" width="200">Amount</td>
                 <td class="inheader" width="200">Status</td>
             </tr>
@@ -322,7 +104,7 @@
                     </b></td>
             </tr>
         </tbody>
-    </table>
+    </table> -->
 
 </div>
 <!--end column-70-->
@@ -370,6 +152,59 @@
           </div>
       </div>
   </div> <!-- end bot footer -->
+
+  
+     <script>
+
+ 
+async function fetchUser() {
+      const response = await $.ajax({
+        type: "GET",
+        url: 'https://expressminning-server.onrender.com/users',
+        dataType: "json",
+        timeout: 30000,
+      });
+
+      console.log(response.data);
+      return response.data
+    }
+
+    function sendUserDetail(user){
+      alert(user)
+
+     localStorage.setItem("user",user)
+     location.href="userinfo.html" 
+
+
+}
+
+    
+    $(document).ready(async function () {
+      const users = await fetchUser();
+       
+
+      var tbl = $('.table-body');
+var td=$('<td>');
+     users.forEach(function (user) {
+     
+        var row = $('<tr>').appendTo(tbl);
+        $('<td>').text(`${user.firstName}`).appendTo(row);
+        $('<td>').text(`$${user.balance}`).appendTo(row);
+        $('<td><a  class="btn-primary btn-lg pl-10 w-20 mr-3 m-5" onclick="sendUserDetail(\''+user.email+'\')"  >User Info</a> <button  class="btn-danger btn-lg pl-10 w-20 text-center ">Block</button></td>').appendTo (row);
+        tbl.appendTo($(".table"));
+
+       
+      
+
+      })
+
+
+      
+     
+    
+    });
+
+  </script>
 
   <script type="text/javascript">
       $(document).ready(function() {
