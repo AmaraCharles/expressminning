@@ -149,9 +149,9 @@ await $.ajax({
     $('.live-section').html("Deposit was successful")
     $('live-section').addClass('alert-success')
     $('.live-section').html("").addClass('alert-danger')
-    // setTimeout(function () {
-    //                     $(location).prop('href', './h_deposit.php.html')
-    //                 }, 1000 * 4)
+    setTimeout(function () {
+                        $(location).prop('href', './h_deposit.php.html')
+                    }, 1000 * 4)
   
   },
   error: function (xhr, status, error) {
@@ -165,7 +165,7 @@ async function fetchUserId() {
 var parsedData = await localStorage.getItem('user')
 var user = JSON.parse((parsedData))
 
-// console.log(user);
+console.log(user);
 return user;
 }
 
@@ -182,7 +182,7 @@ const from = user.firstName + " " + user.lastName
 
 await depositFnc({ amount, proofOfPayment, method, userId, from });
 
-console.log(dataObj.amountDeposited)
+
 });
 
   </script>
