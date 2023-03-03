@@ -173,7 +173,7 @@ return user;
 $('#confirmPayment').submit(async function (e) {
 e.preventDefault(); // prevents page reload
 const amount = $('#amount').val();
-alert(amount);
+
 const proofOfPayment = $('#proofOfPayment').val();
 const method = $('#method').val();
 const user = await fetchUserId();
@@ -181,6 +181,8 @@ const userId = user._id
 const from = user.firstName + " " + user.lastName
 
 await depositFnc({ amount, proofOfPayment, method, userId, from });
+
+console.log(depositFnc)
 });
 
   </script>
