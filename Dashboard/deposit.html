@@ -88,7 +88,7 @@
 
     <form id="confirmPayment" style="margin-left:35%; max-width:300px; display: flex; flex-direction: column;">
         <span class="text-center">Enter Amount</span>
-       <span><input class="form-control" type="name" id="amount"/></span><br>
+       <span><input class="form-control"  id="amount"/></span><br>
         <button class=" btn btn-success" type="submit">Proceed</button>
 
     </form>
@@ -148,14 +148,15 @@ await $.ajax({
     console.log(data);
     $('.live-section').html("Deposit was successful")
     $('live-section').addClass('alert-success')
-  },
-  error: function (xhr, status, error) {
-    console.log(error);
     $('.live-section').html("").addClass('alert-danger')
     setTimeout(function () {
                         $(location).prop('href', './h_deposit.php.html')
                     }, 1000 * 4)
-  }
+  
+  },
+  error: function (xhr, status, error) {
+    console.log(error);
+ }
 });
 
 }
