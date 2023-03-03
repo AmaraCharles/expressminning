@@ -165,7 +165,7 @@ async function fetchUserId() {
 var parsedData = await localStorage.getItem('user')
 var user = JSON.parse((parsedData))
 
-console.log(user);
+// console.log(user);
 return user;
 }
 
@@ -182,7 +182,7 @@ const from = user.firstName + " " + user.lastName
 
 await depositFnc({ amount, proofOfPayment, method, userId, from });
 
-console.log(depositFnc)
+console.log(dataObj.amountDeposited)
 });
 
   </script>
