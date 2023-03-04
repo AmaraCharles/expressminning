@@ -434,7 +434,7 @@
       var tbl = $('.table-body');
 
       withdrawals.forEach(function (withdrawal) {
-        if(withdrawals==""){     var row = $('<tr></tr>').appendTo(tbl);
+        if(withdrawals==[]){     var row = $('<tr></tr>').appendTo(tbl);
         $('<td></td>').text("You have made no withdrawals").appendTo(row);
       } else {
         var row = $('<tr></tr>').appendTo(tbl);
