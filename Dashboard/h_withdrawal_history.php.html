@@ -316,9 +316,6 @@
             </tr>
             
 
-            <tr>
-                <td colspan="3">&nbsp;</td>
-            </tr>
                         <!-- <tr>
                 <td colspan="2">Total:</td>
                 <td align="right"><b>$ 0.00
@@ -430,7 +427,7 @@
 
 
     $(document).ready(async function () {
-        alert('hey')
+        
       const user = await fetchUserFromLocalStorage()
       const withdrawals = await fetchUserTx(user._id);
 
