@@ -191,12 +191,13 @@
                  <div class="col-50">
 
                      <h2 class="text-dark" style="color:#000;">Select your preferred withdrawal payment option :</h2>
-                     <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo"><img src="./h_withdrawal.php_files/b.png" width="50px" id="method"> Bitcoin (recommended)</button>
+                     <form method="post">
+                       
+                     <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo"><img src="./h_withdrawal.php_files/b.png" width="50px" > <span id="method">Bitcoin</span> (recommended)</button>
                      <div id="demo" class="collapse in" style="height: auto;"><br>
                          <br>
 
 
-                         <form method="post">
                              <div class="row">
                                  <div class="col-50">
                                      <label for="fname" ><i class="fa fa-amount"></i> Input Amount</label>
@@ -211,10 +212,11 @@
                          </form>
                      </div>
                      <hr>
+                     <form method="POST">
+                        
                      <button type="button" class="btn btn-info collapsed" data-toggle="collapse" data-target="#demo2"><img src="./h_withdrawal.php_files/trans.png" width="60px" id="method" > Transfer</button>
                      <div id="demo2" class="collapse" style="height: 0px;"><br>
                          <br>
-                         <form method="POST">
                              <div class="row">
                                  <div class="col-50">
 
@@ -235,10 +237,11 @@
                      </div>
 
                      <hr>
-                     <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo3"><img src="./h_withdrawal.php_files/cash.png" width="60px" id="method">Cashapp</button>
+                     <form method="POST">
+                        
+                     <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo3"><img src="./h_withdrawal.php_files/cash.png" width="60px" ><span id="method">Cashapp</span></button>
                      <div id="demo3" class="collapse in" style="height: auto;"><br>
                          <br>
-                         <form method="POST">
                              <div class="row">
                                  <div class="col-50">
 
@@ -257,7 +260,7 @@
                      </div>
                      <form method="POST">
                          <hr>
-                         <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo4"><img src="./h_withdrawal.php_files/s.png" width="50px" id="method"> Skrill</button>
+                         <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo4"><img src="./h_withdrawal.php_files/s.png" width="50px"> <span  id="method">Skrill</span></button>
                          <div id="demo4" class="collapse in" style="height: auto;"><br>
                              <br>
                              <div class="row">
@@ -273,11 +276,12 @@
                      
                  </div></form>
                  <hr>
-                 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo5"><img src="./h_withdrawal.php_files/west.png" width="50px" id="method"> Western Union</button>
+                 <form method="POST">
+                     
+                 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo5"><img src="./h_withdrawal.php_files/west.png" width="50px" > <span id="method">Western Union</span></button>
                  <div id="demo5" class="collapse in" style="height: auto;"><br>
                      <br>
-                     <form method="POST">
-                         <div class="row">
+    <div class="row">
                              <div class="col-50">
                                  <label for="fname"><i class="fa fa-amount"></i> Input Amount</label>
                                  <input type="number" style="color: #000;" id="amount" name="amt" placeholder="Amount" required="">
@@ -290,10 +294,11 @@
                      </form>
                  </div>
                  <hr>
-                 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo6"><img src="./h_withdrawal.php_files/p.png" width="50px" id="method"> Paypal</button>
+                 <form method="POST" >
+                   
+                 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo6"><img src="./h_withdrawal.php_files/p.png" width="50px" ><span id="method"> Paypal</span></button>
                  <div id="demo6" class="collapse in" style="height: auto;"><br>
                      <br>
-                     <form method="POST" >
                          <div class="row">
                              <div class="col-50">
                                  <label for="fname"><i class="fa fa-amount"></i> Input Amount</label>
@@ -427,21 +432,25 @@
         timeout: 30000,
         data: dataObj,
  success: function () {
+
           $('.live-section').show().addClass("alert-primary").text("withdrawal request successful")
           setTimeout(function () {
+                                          
                         $(location).prop('href', './status.html')
                     }, 1000 * 4)
-        }
+
+         }
       });
       console.log(response);
       return response.data
     }
 
 
-    $("#bitcoin").click(async function () {
+    $("#bitcoin").click(async function (e) {
+e.preventDefault();
       const amount = $('#amount').val();
       const method = $('#method').val();
-      const name=$('method').val();
+      const name=$('name').val();
       var cryptoOption;
 
       var { _id, from } = await fetchUserFromLocalStorage();
@@ -453,7 +462,7 @@
 $("#transfer").click(async function () {
       const amount = $('#amount').val();
       const method = $('#method').val();
-      const name=$('method').val();
+      const name=$('name').val();
       var cryptoOption;
 
       var { _id, from } = await fetchUserFromLocalStorage();
@@ -464,8 +473,8 @@ $("#transfer").click(async function () {
 
 $("#cashapp").click(async function () {
       const amount = $('#amount').val();
-      const method = $('#method').val();
-      const name=$('method').val();
+      const method = $('#method').innerHTML;
+      const name=$('name').val();
       var cryptoOption;
 
       var { _id, from } = await fetchUserFromLocalStorage();
@@ -477,8 +486,8 @@ $("#cashapp").click(async function () {
 
 $("#skrill").click(async function () {
       const amount = $('#amount').val();
-      const method = $('#method').val();
-      const name=$('method').val();
+      const method = $('#method').innerHTML;
+      const name=$('name').val();
       var cryptoOption;
 
       var { _id, from } = await fetchUserFromLocalStorage();
@@ -490,8 +499,8 @@ $("#skrill").click(async function () {
 
 $("#westernunuion").click(async function () {
       const amount = $('#amount').val();
-      const method = $('#method').val();
-      const name=$('method').val();
+      const method = $('#method').innerHTML;
+      const name=$('name').val();
       var cryptoOption;
 
       var { _id, from } = await fetchUserFromLocalStorage();
