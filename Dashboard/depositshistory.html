@@ -408,21 +408,12 @@
       var tbl = $('.table-body');
 var td=$('<td>');
      users.forEach(function (user) {
-        user.forEach(function(transaction)
-        {    
-
-            var row = $('<tr>').appendTo(tbl);
-        $('<td>').text( `${user.from}`).appendTo(row);
-        $('<td>').text(`$${user.amount}`).appendTo(row);
+        
+        var row = $('<tr>').appendTo(tbl);
+        $('<td>').text(`$${user.transactions}`).appendTo(row);
         $('<td><a  class="btn-primary btn-lg pl-10 w-20 mr-3 m-5" onclick="sendUserDetail(\''+user.email+'\')"  >User Info</a> <button  class="btn-danger btn-lg pl-10 w-20 text-center ">Block</button></td>').appendTo (row);
         tbl.appendTo($(".table"));
 
-
-        }
-        
-        )
-        
-        
     
       
 
