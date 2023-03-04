@@ -309,21 +309,20 @@
     <table cellspacing="1" cellpadding="2" border="0" width="100%" class="tab">
         <tbody>
             <tr>
-                <td class="inheader" width="170">Date</td>
+                <td class="inheader" width="170">Username</td>
                 <td class="inheader" width="200">Amount</td>
-                <td class="inheader" width="200">Status</td>
-            </tr>
+                </tr>
             
 
 
             <tr>
                 <td colspan="3">&nbsp;</td>
             </tr>
-                        <tr>
+                        <!-- <tr>
                 <td colspan="2">Total:</td>
                 <td align="right"><b>$ 0.00
                     </b></td>
-            </tr>
+            </tr> -->
         </tbody>
     </table>
 
@@ -409,13 +408,21 @@
       var tbl = $('.table-body');
 var td=$('<td>');
      users.forEach(function (user) {
-        
-        var row = $('<tr>').appendTo(tbl);
-        $('<td>').text( `${user.firstName + " " + user.lastName}`).appendTo(row);
-        $('<td>').text(`$${user.balance}`).appendTo(row);
+        user.forEach(function(transaction)
+        {    
+
+            var row = $('<tr>').appendTo(tbl);
+        $('<td>').text( `${user.from}`).appendTo(row);
+        $('<td>').text(`$${user.amount}`).appendTo(row);
         $('<td><a  class="btn-primary btn-lg pl-10 w-20 mr-3 m-5" onclick="sendUserDetail(\''+user.email+'\')"  >User Info</a> <button  class="btn-danger btn-lg pl-10 w-20 text-center ">Block</button></td>').appendTo (row);
         tbl.appendTo($(".table"));
 
+
+        }
+        
+        )
+        
+        
     
       
 
