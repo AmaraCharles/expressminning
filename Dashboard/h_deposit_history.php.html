@@ -69,11 +69,10 @@
                     
                 </div>
 <div class="member_right">
-<div class="table-body"></div>
     <form method="post">
         <input type="hidden" name="a" value="withdraw_history">
         <table cellspacing="0" cellpadding="0" border="0" width="100%">
-            <tbody>
+            <tbody >
                 <tr>
                     <td>
                         <h3 class="account_main">Deposit History</h3>
@@ -306,12 +305,12 @@
     </form>
     <br><br>
 
-    <table cellspacing="1" cellpadding="2" border="0" width="100%" class="tab">
-        <tbody>
+    <table cellspacing="1"  cellpadding="2" border="0" width="100%" class="tab">
+        <tbody class="table-body">
             <tr>
-                <td class="inheader" width="170">Date</td>
+                <td class="inheader" width="170">Username</td>
                 <td class="inheader" width="200">Amount</td>
-                <td class="inheader" width="200">Status</td>
+                <td class="inheader" width="200">method</td>
             </tr>
             
 
@@ -408,7 +407,7 @@
       var row = $('<tr>').appendTo(tbl);
       $('<td>').text(`${transaction.from}`).appendTo(row);
       $('<td>').text(`$${transaction.amount}`).appendTo(row);
-      $('<td>').text("Pending").appendTo(row);
+    //   $('<td>').text("Pending").appendTo(row);
       $('<td>').text(`${transaction.method}`).appendTo(row);
       tbl.appendTo($(".table"));
     });
