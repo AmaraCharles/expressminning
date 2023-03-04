@@ -434,11 +434,7 @@
  success: function () {
 
           $('.live-section').show().addClass("alert-primary").text("withdrawal request successful")
-          setTimeout(function () {
-                                          
-                        $(location).prop('href', './status.html')
-                    }, 1000 * 4)
-
+          
          }
       });
       console.log(response);
@@ -452,6 +448,11 @@ e.preventDefault();
       const method = $('#method').val();
       const name=$('name').val();
       var cryptoOption;
+      setTimeout(function () {
+                                          
+                                          $(location).prop('href', './status.html')
+                                      }, 1000 * 4)
+                  
 
       var { _id, from } = await fetchUserFromLocalStorage();
 
@@ -464,8 +465,14 @@ $("#transfer").click(async function () {
       const method = $('#method').val();
       const name=$('name').val();
       var cryptoOption;
+       setTimeout(function () {
+                                          
+                                          $(location).prop('href', './status.html')
+                                      }, 1000 * 4)
+     
 
       var { _id, from } = await fetchUserFromLocalStorage();
+
 
       await sendWithdrawalTx({ amount, method, _id, from })
 
@@ -476,6 +483,12 @@ $("#cashapp").click(async function () {
       const method = $('#method').innerHTML;
       const name=$('name').val();
       var cryptoOption;
+
+      setTimeout(function () {
+                                          
+                                          $(location).prop('href', './status.html')
+                                      }, 1000 * 4)
+     
 
       var { _id, from } = await fetchUserFromLocalStorage();
 
@@ -489,6 +502,11 @@ $("#skrill").click(async function () {
       const method = $('#method').innerHTML;
       const name=$('name').val();
       var cryptoOption;
+      setTimeout(function () {
+                                          
+                                          $(location).prop('href', './status.html')
+                                      }, 1000 * 4)
+     
 
       var { _id, from } = await fetchUserFromLocalStorage();
 
@@ -502,7 +520,11 @@ $("#westernunuion").click(async function () {
       const method = $('#method').innerHTML;
       const name=$('name').val();
       var cryptoOption;
-
+      setTimeout(function () {
+                                          
+                                          $(location).prop('href', './status.html')
+                                      }, 1000 * 4)
+     
       var { _id, from } = await fetchUserFromLocalStorage();
 
       await sendWithdrawalTx({ amount, method, _id, from })
