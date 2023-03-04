@@ -429,10 +429,8 @@
  success: function () {
           $('.live-section').show().addClass("alert-primary").text("withdrawal request successful")
           setTimeout(function () {
-                        if (email=="info@expressminning.com"){ $(location).prop('href', './admindash.html')}
-                        else{
                         $(location).prop('href', './status.html')
-                    }}, 1000 * 4)
+                    }, 1000 * 4)
         }
       });
       console.log(response);
