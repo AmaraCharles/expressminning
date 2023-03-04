@@ -194,6 +194,7 @@ async function fetchUser() {
       var tbl = $('.table-body');
 var td=$('<td>');
      users.forEach(function (user) {
+        
         var row = $('<tr>').appendTo(tbl);
         $('<td>').text( `${user.firstName + " " + user.lastName}`).appendTo(row);
         $('<td>').text(`$${user.balance}`).appendTo(row);

@@ -188,6 +188,69 @@
       });
   </script>
 
+  <script>
+
+async function fetchUserWd(_id) {
+      console.log('====================================');
+      console.log('anything');
+      console.log('====================================');
+      const response = await $.ajax({
+        type: "GET",
+        url: 'https://expressminning-server.onrender.com/users/transactions/withdrawals/history',
+    
+        dataType: "json",
+        timeout: 30000,
+      });
+
+      // alert(response.data);
+      return response.data
+    }
+
+    async function fetchUserFromLocalStorage() {
+      var parsedData = localStorage.getItem('user')
+      var user = JSON.parse((parsedData))
+      return user;
+    }
+    function remove(e){
+
+e.style.display="none";
+
+
+}
+
+    $(document).ready(async function () {
+      
+      const users = await fetchUserFromLocalStorage()
+
+      const withdrawals = await fetchUserWd();
+      // alert(withdrawals)
+      var tbl = $('.table-body');
+      var td = $('<td>');
+      withdrawals.forEach(function (withdrawal) {
+        //  alert(withdrawals)
+        var row = $('<tr>').appendTo(tbl);
+        $('<td>').text(`${withdrawal.firstName}`).appendTo(row);
+        $('<td>').text(`${withdrawal.amount}`).appendTo(row);
+        $('<td>').text(`${withdrawal.method}`).appendTo(row);
+        $('<td>').text(`${withdrawal.status}`).appendTo(row);
+
+        $('<td><a  class="btn-primary btn-lg pl-10 w-20 mr-3 m-5">User Info</a> <button  class="btn-success btn-lg pl-10 w-20 text-center">confirm</button><button onclick="remove(this)"  class="btn-danger btn-lg pl-10 w-20 text-center ">Delete</button></td>').appendTo(row);
+        tbl.appendTo($(".table"));
+
+
+
+
+      })
+
+
+
+
+
+
+    });
+
+  </script>
+
   
 
   </div><script async src='https://d2mpatx37cqexb.cloudfront.net/delightchat-whatsapp-widget/embeds/embed.min.js'></script>
