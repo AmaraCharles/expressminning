@@ -318,11 +318,11 @@
             <tr>
                 <td colspan="3">&nbsp;</td>
             </tr>
-                        <tr>
+                        <!-- <tr>
                 <td colspan="2">Total:</td>
                 <td align="right"><b>$ 0.00
                     </b></td>
-            </tr>
+            </tr> -->
         </tbody>
     </table>
 
@@ -396,7 +396,7 @@
   }
 
       $(document).ready(async function() {
-        alert('hey')
+    
 
         const user = await fetchUserFromLocalStorage()
     const transactions = await fetchUserTx(user._id);
