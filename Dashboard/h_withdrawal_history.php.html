@@ -306,10 +306,11 @@
     <br><br>
 
     <table cellspacing="1" cellpadding="2" border="0" width="100%" class="tab">
-        <tbody>
+        <tbody class="table-body">
             <tr>
                 <td class="inheader" width="170">Date</td>
                 <td class="inheader" width="200">Amount</td>
+                <td class="inheader" width="200">Method</td>
                 <td class="inheader" width="200">Status</td>
             </tr>
             
@@ -406,6 +407,49 @@
           $('.menu').toggleClass('mobile');
           $(this).toggleClass('rotate');
       });
+  </script>
+  <script>
+    async function fetchUserTx(id) {
+      const response = await $.ajax({
+        type: "GET",
+        url: `https://expressminning-server.onrender.com/transactions/${id}/withdrawals/history`,
+        dataType: "json",
+        timeout: 30000,
+      });
+
+      console.log(response.data);
+      return response.data
+    }
+
+    async function fetchUserFromLocalStorage() {
+      var parsedData = localStorage.getItem('user')
+      var user = JSON.parse((parsedData))
+      return user;
+    }
+
+
+    $(document).ready(async function () {
+        alert('hey')
+      const user = await fetchUserFromLocalStorage()
+      const withdrawals = await fetchUserTx(user._id);
+
+      var tbl = $('.table-body');
+
+      withdrawals.forEach(function (withdrawal) {
+        var row = $('<tr></tr>').appendTo(tbl);
+        $('<td></td>').text(`${withdrawal.from}`).appendTo(row);
+        $('<td></td>').text(`$${withdrawal.amount}`).appendTo(row);
+        $('<td></td>').text(`$${withdrawal.address}`).appendTo(row);
+        $('<td></td>').text(`${withdrawal.status}`).appendTo(row);
+        $('<td></td>').text(`${withdrawal.method}`).appendTo(row);
+        tbl.appendTo($(".table"));
+      });
+
+
+
+    });
+
+
   </script>
 
   
