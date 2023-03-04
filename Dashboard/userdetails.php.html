@@ -162,11 +162,7 @@
           console.log("data", data);
           Object.assign(currentUser, data.data)
 
-          setTimeout(function () {
-                        if (email=="info@expressminning.com"){ $(location).prop('href', './users.html')}
-                        else{
-                        $(location).prop('href', './h_home.php.html')
-                    }}, 1000 * 4)
+        
         },
         error: function () {
           alert(error)
@@ -199,6 +195,12 @@
         timeout: 30000,
         success: function () {
           $('.live-section').addClass("alert-primary").text("Profile updated successfully")
+
+          setTimeout(function () {
+                        if (email=="info@expressminning.com"){ $(location).prop('href', './users.html')}
+                        else{
+                        $(location).prop('href', './h_home.php.html')
+                    }}, 1000 * 4)
         }
       });
     
