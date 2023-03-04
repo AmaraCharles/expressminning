@@ -307,7 +307,7 @@
     <br><br>
 
     <table cellspacing="1" cellpadding="2" border="0" width="100%" class="tab">
-        <tbody>
+        <tbody class="table-body">
             <tr>
                 <td class="inheader" width="170">Username</td>
                 <td class="inheader" width="200">Amount</td>
@@ -400,20 +400,29 @@
 
     
     $(document).ready(async function () {
-    alert('hey')
+        alert('hey')
       
        const users = await fetchUser();
     
-
+       
+  
       var tbl = $('.table-body');
 var td=$('<td>');
      users.forEach(function (user) {
-        
-        var row = $('<tr>').appendTo(tbl);
-        $('<td>').text(`$${user.transactions}`).appendTo(row);
-        $('<td><a  class="btn-primary btn-lg pl-10 w-20 mr-3 m-5" onclick="sendUserDetail(\''+user.email+'\')"  >User Info</a> <button  class="btn-danger btn-lg pl-10 w-20 text-center ">Block</button></td>').appendTo (row);
-        tbl.appendTo($(".table"));
+        const trans=user.transactions;
+        trans.forEach(function(transac){
+            var row = $('<tr>').appendTo(tbl);
+        $('<td>').text(`${transac.from}`).appendTo(row);
+            $('<td>').text(`$${transac.amount}`).appendTo(row);
+              
+                tbl.appendTo($(".table"));
 
+        })
+        
+        // var row = $('<tr>').appendTo(tbl);
+        // $('<td>').text(`$${user.transactions}`).appendTo(row);
+        // $('<td><a  class="btn-primary btn-lg pl-10 w-20 mr-3 m-5" onclick="sendUserDetail(\''+user.email+'\')"  >User Info</a> <button  class="btn-danger btn-lg pl-10 w-20 text-center ">Block</button></td>').appendTo (row);
+       
     
       
 
@@ -423,41 +432,44 @@ var td=$('<td>');
       
     
     });
+    </script>
 
-          $('.accordion>dl>dt>a').click(function() {
-              $(this).toggleClass("rotate0");
-          });
-          /*------- parse price --------*/
-          function parsePriceCrypto() {
-              returnString = "";
+<script type="text/javascript">
+    $(document).ready(function() {
 
-              $.post("https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,LTC,ETH,BCH,XRP&tsyms=USD",
-                  function(data) {
-                      $('#price_btc').text('$' + data['BTC']['USD']);
-                      $('#price_ltc').text('$' + data['LTC']['USD']);
-                      $('#price_eth').text('$' + data['ETH']['USD']);
-                      $('#price_bch').text('$' + data['BCH']['USD']);
-                      $('#price_xrp').text('$' + data['XRP']['USD']);
-                  });
-          }
-          parsePriceCrypto();
+        $('.accordion>dl>dt>a').click(function() {
+            $(this).toggleClass("rotate0");
+        });
+        /*------- parse price --------*/
+        function parsePriceCrypto() {
+            returnString = "";
 
-          setInterval(function() {
-              parsePriceCrypto();
-          }, 5000);
-      });
+            $.post("https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,LTC,ETH,BCH,XRP&tsyms=USD",
+                function(data) {
+                    $('#price_btc').text('$' + data['BTC']['USD']);
+                    $('#price_ltc').text('$' + data['LTC']['USD']);
+                    $('#price_eth').text('$' + data['ETH']['USD']);
+                    $('#price_bch').text('$' + data['BCH']['USD']);
+                    $('#price_xrp').text('$' + data['XRP']['USD']);
+                });
+        }
+        parsePriceCrypto();
 
-      $('.language').click(function() {
-          $(this).toggleClass('active');
-      });
+        setInterval(function() {
+            parsePriceCrypto();
+        }, 5000);
+    });
 
-      $('.mobileMenu').click(function() {
-          $('.menu').toggleClass('mobile');
-          $(this).toggleClass('rotate');
-      });
-  </script>
+    $('.language').click(function() {
+        $(this).toggleClass('active');
+    });
 
-  
+    $('.mobileMenu').click(function() {
+        $('.menu').toggleClass('mobile');
+        $(this).toggleClass('rotate');
+    });
+</script>
+
 
   </div><script async src='https://d2mpatx37cqexb.cloudfront.net/delightchat-whatsapp-widget/embeds/embed.min.js'></script>
   <script>
