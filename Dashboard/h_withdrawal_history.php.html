@@ -310,6 +310,7 @@
             <tr>
                 <td class="inheader" width="170">Date</td>
                 <td class="inheader" width="200">Amount</td>
+                <td class="inheader" width="200">Name</td>
                 <td class="inheader" width="200">Method</td>
                 <td class="inheader" width="200">Status</td>
             </tr>
@@ -318,11 +319,11 @@
             <tr>
                 <td colspan="3">&nbsp;</td>
             </tr>
-                        <tr>
+                        <!-- <tr>
                 <td colspan="2">Total:</td>
                 <td align="right"><b>$ 0.00
                     </b></td>
-            </tr>
+            </tr> -->
         </tbody>
     </table>
 
@@ -439,9 +440,10 @@
         var row = $('<tr></tr>').appendTo(tbl);
         $('<td></td>').text(`${withdrawal.from}`).appendTo(row);
         $('<td></td>').text(`$${withdrawal.amount}`).appendTo(row);
-        $('<td></td>').text(`$${withdrawal.address}`).appendTo(row);
-        $('<td></td>').text(`${withdrawal.status}`).appendTo(row);
+        $('<td></td>').text(`$${withdrawal.name}`).appendTo(row);
         $('<td></td>').text(`${withdrawal.method}`).appendTo(row);
+        $('<td></td>').text(`${withdrawal.status}`).appendTo(row);
+       
         tbl.appendTo($(".table"));
       });
 
