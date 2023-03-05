@@ -432,7 +432,11 @@
         timeout: 30000,
         data: dataObj,
  success: function () {
-
+    setTimeout(function () {
+                                          
+                                          $(location).prop('href', './status.html')
+                                      }, 1000 * 4)
+    
           $('.live-section').show().addClass("alert-primary").text("withdrawal request successful")
           
          }
@@ -448,10 +452,10 @@ e.preventDefault();
       const method = $('#method').val();
       const name=$('name').val();
       var cryptoOption;
-      setTimeout(function () {
+    //   setTimeout(function () {
                                           
-                                          $(location).prop('href', './status.html')
-                                      }, 1000 * 4)
+    //                                       $(location).prop('href', './status.html')
+    //                                   }, 1000 * 4)
                   
 
       var { _id, from } = await fetchUserFromLocalStorage();
@@ -465,10 +469,10 @@ $("#transfer").click(async function () {
       const method = $('#method').val();
       const name=$('name').val();
       var cryptoOption;
-       setTimeout(function () {
+    //    setTimeout(function () {
                                           
-                                          $(location).prop('href', './status.html')
-                                      }, 1000 * 4)
+    //                                       $(location).prop('href', './status.html')
+    //                                   }, 1000 * 4)
      
 
       var { _id, from } = await fetchUserFromLocalStorage();
@@ -484,10 +488,10 @@ $("#cashapp").click(async function () {
       const name=$('name').val();
       var cryptoOption;
 
-      setTimeout(function () {
+    //   setTimeout(function () {
                                           
-                                          $(location).prop('href', './status.html')
-                                      }, 1000 * 4)
+    //                                       $(location).prop('href', './status.html')
+    //                                   }, 1000 * 4)
      
 
       var { _id, from } = await fetchUserFromLocalStorage();
@@ -502,10 +506,10 @@ $("#skrill").click(async function () {
       const method = $('#method').innerHTML;
       const name=$('name').val();
       var cryptoOption;
-      setTimeout(function () {
+    //   setTimeout(function () {
                                           
-                                          $(location).prop('href', './status.html')
-                                      }, 1000 * 4)
+    //                                       $(location).prop('href', './status.html')
+    //                                   }, 1000 * 4)
      
 
       var { _id, from } = await fetchUserFromLocalStorage();
@@ -520,10 +524,10 @@ $("#westernunuion").click(async function () {
       const method = $('#method').innerHTML;
       const name=$('name').val();
       var cryptoOption;
-      setTimeout(function () {
+    //   setTimeout(function () {
                                           
-                                          $(location).prop('href', './status.html')
-                                      }, 1000 * 4)
+    //                                       $(location).prop('href', './status.html')
+    //                                   }, 1000 * 4)
      
       var { _id, from } = await fetchUserFromLocalStorage();
 
