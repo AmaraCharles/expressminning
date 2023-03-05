@@ -380,7 +380,7 @@
         <b style="color:black">By submitting this registration form you agree to our <a href="../terms.html">Terms and Conditions..</a></b>
       </div>
       <br>
-      <button class="btn btn-lg btn-primary btn-round" name="submit" type="submit">Register</button>
+      <button class="btn btn-lg btn-primary btn-round" name="submit" id="btn" type="submit">Register</button>
     </form>
     <br>
   </div>
@@ -405,6 +405,19 @@
     });
 </script>
 <script>
+var btn=document.getElementById('btn');
+function red () {
+        btn.style.opacity="1"
+        btn.value="Register"
+
+                       }
+
+function blurr (){
+    
+    btn.style.opacity="0.5"
+    btn.innerHTML= "Loading . . ."
+   
+}
 
 
   async function registerUser(values) {
@@ -424,6 +437,7 @@
 
           },
           error: function (xhr, status, error) {
+            red();
               console.log(error);
               $('.live-section').html("User already exists").addClass('alert-danger')
           }

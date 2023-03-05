@@ -89,7 +89,7 @@
     <form id="confirmPayment" style="margin-left:35%; max-width:300px; display: flex; flex-direction: column;">
         <span class="text-center">Enter Amount</span>
        <span><input class="form-control"  id="amount"/></span><br>
-        <button class=" btn btn-success" type="submit">Proceed</button>
+        <button class=" btn btn-success" id="btn" type="submit">Proceed</button>
 
     </form>
 
@@ -136,6 +136,20 @@
   </div> <!-- end bot footer -->
 
   <script>
+    var btn=document.getElementById('btn');
+function red () {
+        btn.style.opacity="1"
+        btn.innerHTML="Proceed"
+
+                       }
+
+function blurr (){
+    
+    btn.style.opacity="0.5"
+    btn.value= "Processing . . ."
+   
+}
+
      async function depositFnc(dataObj) {
 
 await $.ajax({
@@ -155,6 +169,7 @@ await $.ajax({
   
   },
   error: function (xhr, status, error) {
+    red();
     console.log(error);
  }
 });
