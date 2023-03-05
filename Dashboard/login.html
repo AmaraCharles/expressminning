@@ -83,7 +83,7 @@
       <input id="password" type="password" name="password" class="form-control" placeholder="Password" required>
       <span style="color:crimson"></span>
       <br>
-      <input type="submit" name="submit" class="btn btn-lg btn-primary btn-round" value="Login"><br>
+      <input type="submit" name="submit" id="btn" onclick="blurr(this)" class="btn btn-lg btn-primary btn-round fixx" value="Login"><br>
       <br>
       <p class="mt-3"><a href="register.html" class="text-white">Register here!</a> <br>
         <a href="forgot.php" class="">Forgot password?</a>
@@ -113,6 +113,19 @@
 </script>
  <script>
 
+var btn=document.getElementById('btn');
+function red () {
+        btn.style.opacity="1"
+        btn.value="Login"
+
+                       }
+
+function blurr (){
+    
+    btn.style.opacity="0.5"
+    btn.value= "Loading . . ."
+   
+}
         async function loginUser({ email, password }) {
             await $.ajax({
                 type: "POST",
@@ -132,8 +145,10 @@
                     }}, 1000 * 4)
                 },
                 error: function (xhr, status, error) {
+                   red()
                     console.log(error);
                     $('.live-section').html("Email or password incorrect").addClass('alert-danger')
+                
                 }
             });
 
