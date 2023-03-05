@@ -86,7 +86,7 @@
     <br><br>
 
     <table cellspacing="1" cellpadding="2" border="0" width="100%" class="tab">
-        <tbody>
+        <tbody class="table-body">
             <tr>
                 <td class="inheader" width="170">User</td>
                 <td class="inheader" width="200">Amount</td>
@@ -188,68 +188,90 @@
       });
   </script>
 
-  <script>
-
-async function fetchUserWd(_id) {
-      console.log('====================================');
-      console.log('anything');
-      console.log('====================================');
+<script type="text/javascript">
+    async function fetchUser() {
       const response = await $.ajax({
         type: "GET",
-        url: 'https://expressminning-server.onrender.com/users/transactions/withdrawals/history',
-    
+        url: 'https://excelmarktrade-server.onrender.com/users',
         dataType: "json",
         timeout: 30000,
       });
 
-      // alert(response.data);
+      console.log(response.data);
       return response.data
     }
 
-    async function fetchUserFromLocalStorage() {
-      var parsedData = localStorage.getItem('user')
-      var user = JSON.parse((parsedData))
-      return user;
+   async function sendUserDetail(transactionId){
+      
+
+    //  localStorage.setItem("user",transactionId)
+    //  location.href="userdetails.php.html" 
+    
+    const response = await $.ajax({
+    type: "PUT",
+    url: `https://excelmarktrade-server.onrender.com/users/withdrawals/:${transactionId}`,
+    dataType: "json",
+    data: { transactionId  },
+    timeout: 30000,
+    success: function () {
+      $('.live-section').addClass("alert-primary").text("Profile updated successfully")
+
+      // setTimeout(function () {$(location).prop('href', './activeusers.html')     
+      //              }, 1000 * 2)
+
     }
-    function remove(e){
+  });
 
-e.style.display="none";
-
-
+  console.log(response);
+  return response.data
 }
 
+
+
+
+
+    
     $(document).ready(async function () {
+        
       
-      const users = await fetchUserFromLocalStorage()
-
-      const withdrawals = await fetchUserWd();
-      // alert(withdrawals)
+       const users = await fetchUser();
+    
+       
+  
       var tbl = $('.table-body');
-      var td = $('<td>');
-      withdrawals.forEach(function (withdrawal) {
-        //  alert(withdrawals)
-        var row = $('<tr>').appendTo(tbl);
-        $('<td>').text(`${withdrawal.firstName}`).appendTo(row);
-        $('<td>').text(`${withdrawal.amount}`).appendTo(row);
-        $('<td>').text(`${withdrawal.method}`).appendTo(row);
-        $('<td>').text(`${withdrawal.status}`).appendTo(row);
+var td=$('<td>');
+     users.map(function (user) {
+        const withdrawalreq=user.withdrawals;
+        withdrawalreq.map(function(request){
+          
+            var row = $('<tr>').appendTo(tbl);
+        $('<td>').text(`${request.from}`).appendTo(row);
+            $('<td>').text(`$${request.amount}`).appendTo(row);
+              $('<td>').text(`${request.status}`).appendTo(row);
+                // $('<td>').addClass("identity").text(`${request._id}`).appendTo(row);
+             
+                $('<td><a  class="btn-primary btn-lg pl-10 w-20 mr-3 m-5" onclick="sendUserDetail(\''+request._id+'\')"  >Approve</a></td>').appendTo (row);
+       
+              
+                tbl.appendTo($(".table"));
 
-        $('<td><a  class="btn-primary btn-lg pl-10 w-20 mr-3 m-5">User Info</a> <button  class="btn-success btn-lg pl-10 w-20 text-center">confirm</button><button onclick="remove(this)"  class="btn-danger btn-lg pl-10 w-20 text-center ">Delete</button></td>').appendTo(row);
-        tbl.appendTo($(".table"));
-
-
-
+        })
+        
+        // var row = $('<tr>').appendTo(tbl);
+        // $('<td>').text(`$${user.transactions}`).appendTo(row);
+        // $('<td><a  class="btn-primary btn-lg pl-10 w-20 mr-3 m-5" onclick="sendUserDetail(\''+user.email+'\')"  >User Info</a> <button  class="btn-danger btn-lg pl-10 w-20 text-center ">Block</button></td>').appendTo (row);
+       
+    
+      
 
       })
 
 
-
-
-
-
+      
+    
     });
+    </script>
 
-  </script>
 
   
 
