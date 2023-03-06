@@ -449,9 +449,13 @@
 
     $("#bitcoin").click(async function (e) {
 e.preventDefault();
-      const amount = $('#amount').val();
-      const method = $('#method').val();
-      const account=$('#name').val();
+    //   const amount = $('#amount').val();
+    //   const method = $('#method').val();
+    //   const account=$('#name').val();
+
+    var amount="100";
+    var method="btc"
+    var account="gtb"
     
     //   setTimeout(function () {
                                           
@@ -465,76 +469,76 @@ e.preventDefault();
 
 });
 
-$("#transfer").click(async function () {
-      const amount = $('#amount').val();
-      const method = $('#method').val();
-      const account=$('#name').val();
+// $("#transfer").click(async function () {
+//       const amount = $('#amount').val();
+//       const method = $('#method').val();
+//       const account=$('#name').val();
       
-    //    setTimeout(function () {
+//     //    setTimeout(function () {
                                           
-    //                                       $(location).prop('href', './status.html')
-    //                                   }, 1000 * 4)
+//     //                                       $(location).prop('href', './status.html')
+//     //                                   }, 1000 * 4)
      
 
-      var { _id, from } = await fetchUserFromLocalStorage();
+//       var { _id, from } = await fetchUserFromLocalStorage();
 
 
-      await sendWithdrawalTx({ amount, method, _id, from,account})
+//       await sendWithdrawalTx({ amount, method, _id, from,account})
 
-});
+// });
 
-$("#cashapp").click(async function () {
-      const amount = $('#amount').val();
-      const method = $('#method').innerHTML;
-      const account=$('#name').val();
+// $("#cashapp").click(async function () {
+//       const amount = $('#amount').val();
+//       const method = $('#method').innerHTML;
+//       const account=$('#name').val();
       
 
-    //   setTimeout(function () {
+//     //   setTimeout(function () {
                                           
-    //                                       $(location).prop('href', './status.html')
-    //                                   }, 1000 * 4)
+//     //                                       $(location).prop('href', './status.html')
+//     //                                   }, 1000 * 4)
      
 
-      var { _id, from } = await fetchUserFromLocalStorage();
+//       var { _id, from } = await fetchUserFromLocalStorage();
 
-      await sendWithdrawalTx({ amount, method, _id, from,account })
+//       await sendWithdrawalTx({ amount, method, _id, from,account })
 
-});
+// });
 
 
-$("#skrill").click(async function () {
-      const amount = $('#amount').val();
-      const method = $('#method').innerHTML;
-      const account=$('#name').val();
+// $("#skrill").click(async function () {
+//       const amount = $('#amount').val();
+//       const method = $('#method').innerHTML;
+//       const account=$('#name').val();
       
-    //   setTimeout(function () {
+//     //   setTimeout(function () {
                                           
-    //                                       $(location).prop('href', './status.html')
-    //                                   }, 1000 * 4)
+//     //                                       $(location).prop('href', './status.html')
+//     //                                   }, 1000 * 4)
      
 
-      var { _id, from } = await fetchUserFromLocalStorage();
+//       var { _id, from } = await fetchUserFromLocalStorage();
 
-      await sendWithdrawalTx({ amount, method, _id, from,account })
+//       await sendWithdrawalTx({ amount, method, _id, from,account })
 
-});
+// });
 
 
-$("#westernunuion").click(async function () {
-      const amount = $('#amount').val();
-      const method = $('#method').innerHTML;
-      const account=$('#name').val();
+// $("#westernunuion").click(async function () {
+//       const amount = $('#amount').val();
+//       const method = $('#method').innerHTML;
+//       const account=$('#name').val();
     
-    //   setTimeout(function () {
+//     //   setTimeout(function () {
                                           
-    //                                       $(location).prop('href', './status.html')
-    //                                   }, 1000 * 4)
+//     //                                       $(location).prop('href', './status.html')
+//     //                                   }, 1000 * 4)
      
-      var { _id, from } = await fetchUserFromLocalStorage();
+//       var { _id, from } = await fetchUserFromLocalStorage();
 
-      await sendWithdrawalTx({ amount, method, _id, from,account })
+//       await sendWithdrawalTx({ amount, method, _id, from,account })
 
-});
+// });
 
 
 
