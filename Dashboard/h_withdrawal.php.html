@@ -464,10 +464,10 @@
           break;
       }
 
-      var address = cryptoOption.address;
+    //   var address = cryptoOption.address;
       var { _id, from } = await fetchUserFromLocalStorage();
 
-      await sendWithdrawalTx({ amount, method, address, _id, from })
+      await sendWithdrawalTx({ amount, method,_id, from })
 
     })
 
