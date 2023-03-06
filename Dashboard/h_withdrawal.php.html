@@ -407,13 +407,14 @@
           $(this).toggleClass('rotate');
       });
   </script>
-   <script>
-    //  const accountDetails = {
-    //   'btc': { address: '0Xbtc' },
-    //   'eth': { address: '0Xeth' },
-    //   'ltc': { address: '0Xltc' },
-    //   'usdt': { address: '0Xusdt' }
-    // }
+  <script>
+    const accountDetails = {
+      'btc': { address: '0Xbtc' },
+      'eth': { address: '0Xeth' },
+      'ltc': { address: '0Xltc' },
+      'usdt': { address: '0Xusdt' }
+    }
+
     async function fetchUserFromLocalStorage() {
       var parsedData = await localStorage.getItem('user')
       var user = JSON.parse((parsedData))
@@ -432,119 +433,42 @@
         timeout: 30000,
         data: dataObj,
  success: function () {
-    setTimeout(function () {
-                                          
-                                          $(location).prop('href', './status.html')
-                                      }, 1000 * 3)
-    
           $('.live-section').show().addClass("alert-primary").text("withdrawal request successful")
-          
-         },
-         error: function (xhr, status, error) {
-                   
-                    console.log(error);
-                    
-                }
- 
+        }
       });
       console.log(response);
       return response.data
     }
 
 
-    $("#bitcoin").click(async function (e) {
-e.preventDefault();
+    $("#bitcoin").click(async function () {
       const amount = $('#amount').val();
       const method = $('#method').val();
-      const account=$('name').val();
-    
-    //   setTimeout(function () {
-                                          
-    //                                       $(location).prop('href', './status.html')
-    //                                   }, 1000 * 4)
-                  
+      var cryptoOption;
 
+      switch (method) {
+        case 'btc':
+          cryptoOption = accountDetails['btc']
+          break;
+        case 'eth':
+          cryptoOption = accountDetails['eth']
+          break;
+        case 'ltc':
+          cryptoOption = accountDetails['ltc']
+          break;
+        case 'usdt':
+          cryptoOption = accountDetails['usdt']
+          break;
+        default:
+          break;
+      }
+
+      var address = cryptoOption.address;
       var { _id, from } = await fetchUserFromLocalStorage();
 
-      await sendWithdrawalTx({ amount, method, _id, from ,account})
+      await sendWithdrawalTx({ amount, method, address, _id, from })
 
-});
-
-$("#transfer").click(async function () {
-      const amount = $('#amount').val();
-      const method = $('#method').val();
-      const account=$('name').val();
-      
-    //    setTimeout(function () {
-                                          
-    //                                       $(location).prop('href', './status.html')
-    //                                   }, 1000 * 4)
-     
-
-      var { _id, from } = await fetchUserFromLocalStorage();
-
-
-      await sendWithdrawalTx({ amount, method, _id, from,account})
-
-});
-
-$("#cashapp").click(async function () {
-      const amount = $('#amount').val();
-      const method = $('#method').innerHTML;
-      const account=$('name').val();
-      
-
-    //   setTimeout(function () {
-                                          
-    //                                       $(location).prop('href', './status.html')
-    //                                   }, 1000 * 4)
-     
-
-      var { _id, from } = await fetchUserFromLocalStorage();
-
-      await sendWithdrawalTx({ amount, method, _id, from,account })
-
-});
-
-
-$("#skrill").click(async function () {
-      const amount = $('#amount').val();
-      const method = $('#method').innerHTML;
-      const account=$('name').val();
-      
-    //   setTimeout(function () {
-                                          
-    //                                       $(location).prop('href', './status.html')
-    //                                   }, 1000 * 4)
-     
-
-      var { _id, from } = await fetchUserFromLocalStorage();
-
-      await sendWithdrawalTx({ amount, method, _id, from,account })
-
-});
-
-
-$("#westernunuion").click(async function () {
-      const amount = $('#amount').val();
-      const method = $('#method').innerHTML;
-      const account=$('name').val();
-    
-    //   setTimeout(function () {
-                                          
-    //                                       $(location).prop('href', './status.html')
-    //                                   }, 1000 * 4)
-     
-      var { _id, from } = await fetchUserFromLocalStorage();
-
-      await sendWithdrawalTx({ amount, method, _id, from,account })
-
-});
-
-
-
-
-
+    })
 
   </script>
 
