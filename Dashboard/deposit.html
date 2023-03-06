@@ -152,7 +152,7 @@ function blurr (){
 
      async function depositFnc(dataObj) {
 
-await $.ajax({
+const response= await $.ajax({
   type: "POST",
   url: `https://expressminning-server.onrender.com/transactions/${dataObj.userId}/deposit`,
   dataType: "json",
