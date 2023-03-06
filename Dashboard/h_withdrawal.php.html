@@ -442,6 +442,7 @@
 
 
     $("#bitcoin").click(async function () {
+        e.preventDefault();
       const amount = $('#amount').val();
       const method = $('#method').val();
       var cryptoOption;
