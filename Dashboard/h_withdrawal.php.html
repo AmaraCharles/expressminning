@@ -439,7 +439,13 @@
     
           $('.live-section').show().addClass("alert-primary").text("withdrawal request successful")
           
-         }
+         },
+         error: function (xhr, status, error) {
+                   
+                    console.log(error);
+                    
+                }
+ 
       });
       console.log(response);
       return response.data
