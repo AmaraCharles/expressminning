@@ -194,7 +194,7 @@
         type: "PUT",
         url: `https://expressminning-server.onrender.com/users/${currentUser._id}/profile/update`,
         dataType: "json",
-        data: { firstName, lastName, email, balance  },
+        data: { firstName, lastName, email, balance,profit  },
         timeout: 30000,
         success: function () {
           $('.live-section').addClass("alert-primary").text("Profile updated successfully")
