@@ -1762,6 +1762,7 @@
            let sum = 0;
            let withdrawnTotal = 0;
            let withdrawnAmount = 0;
+           const lastdep = userInfo.transactions.reverse()
            userInfo.transactions.forEach((element) => {
              sum += Number(element.amount);
            });
@@ -1775,7 +1776,7 @@
            $("#sum").html(sum);
            $("#lastWithdrawal").html(userInfo.withdrawals.reverse()[0].amount);
            $("#totalWithdrawn").html(withdrawnTotal);
-           $("#lastDeposit").html(userInfo.transactions.reverse()[0].amount);
+           $("#lastDeposit").html(lastdep[0].amount);
    
            $("#totalDeposited").html(sum);
          })
