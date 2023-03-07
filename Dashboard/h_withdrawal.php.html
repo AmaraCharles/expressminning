@@ -456,13 +456,9 @@
 
     $("#bitcoin").click(async function (e) {
 e.preventDefault();
-var btn=document.getElementsByClassName('btn');
-
-btn.style="opacity:0.5"
-    btn.value= "Loading . . ."
    
       const amount = $('#amount').val();
-      const method = $('#method').text;
+      const method = $('#method').text();
       const address =$('#name').val();
 
    
@@ -473,14 +469,10 @@ btn.style="opacity:0.5"
 });
 
 $( "#transfer").click(async function (e) {
-    var btn=document.getElementsByClassName('btn');
-
     e.preventDefault()
-    btn.style.opacity="0.5"
-    btn.value= "Loading . . ."
    
       const amount = $('#amount').val();
-      const method = $('#method').text;
+      const method = $('#method').text();
       const address =$('#name').val();
       
      
@@ -496,7 +488,7 @@ $("#cashapp").click(async function (e) {
     e.preventDefault()
    
       const amount = $('#amount').val();
-      const method = $('#method').text;
+      const method = $('#method').text();
       const address=$('#name').val();
       
      
@@ -510,9 +502,9 @@ $("#cashapp").click(async function (e) {
 
 $("#skrill").click(async function (e) {
     e.preventDefault()
-    
+   
       const amount = $('#amount').val();
-      const method = $('#method').text;
+      const method = $('#method').text();
       const address=$('#name').val();
       
      
@@ -528,7 +520,7 @@ $("#westernunuion").click(async function (e) {
     e.preventDefault()
    
       const amount = $('#amount').val();
-      const method = $('#method').text;
+      const method = $('#method').text();
       const address=$('#name').val();
     
      
