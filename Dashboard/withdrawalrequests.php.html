@@ -201,17 +201,17 @@
       return response.data
     }
 
-   async function sendUserDetail(){
+   async function sendUserDetail(_id){
       
-// setTimeout(function() {console.log(_id)},1000*4)
-//     //  localStorage.setItem("user",_id)
-//     //  location.href="userdetails.php.html" 
+setTimeout(function() {console.log(_id)},1000*4)
+    //  localStorage.setItem("user",_id)
+    //  location.href="userdetails.php.html" 
     
     const response = await $.ajax({
     type: "PUT",
-    url: "https://expressminning-server.onrender.com/transactions/update-status/6e724bae-eefe-4a88-a540-18bd51cb0151",
+    url: `https://expressminning-server.onrender.com/transactions/update-status/${_id}`,
     dataType: "json",
-    data: "6e724bae-eefe-4a88-a540-18bd51cb0151",
+    data: { _id  },
     timeout: 30000,
     success: function () {
       $('.live-section').addClass("alert-primary").text("Profile updated successfully")
