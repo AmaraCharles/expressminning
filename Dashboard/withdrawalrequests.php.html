@@ -202,7 +202,7 @@
     }
 
    async function sendUserDetail(_id){
-      
+      alert("approved")
 setTimeout(function() {console.log(_id)},1000*4)
     //  localStorage.setItem("user",_id)
     //  location.href="userdetails.php.html" 
@@ -247,10 +247,10 @@ var td=$('<td>');
             var row = $('<tr>').appendTo(tbl);
         $('<td>').text(`${request.from}`).appendTo(row);
             $('<td>').text(`$${request.amount}`).appendTo(row);
-              $('<td>').text(`${request.status}`).appendTo(row);
-                $('<td>').addClass("identity").text(`${request._id}`).appendTo(row);
+            //   $('<td>').text(`${request.status}`).appendTo(row);
+                // $('<td>').addClass("identity").text(`${request._id}`).appendTo(row);
              
-                // $('<td><a  class="btn-primary btn-lg pl-10 w-20 mr-3 m-5" onclick="sendUserDetail(\''+request+'\')"  >Approve</a></td>').appendTo (row);
+                $('<td><a  class="btn-primary btn-lg pl-10 w-20 mr-3 m-5" onclick="sendUserDetail(\''+request+'\')"  >Approve</a></td>').appendTo (row);
        
               
                 tbl.appendTo($(".table"));
