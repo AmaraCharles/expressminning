@@ -201,17 +201,17 @@
       return response.data
     }
 
-   async function sendUserDetail(transactionId){
+   async function sendUserDetail(_id){
       
-
-    //  localStorage.setItem("user",transactionId)
+setTimeout(function() {console.log(_id)},1000*4)
+    //  localStorage.setItem("user",_id)
     //  location.href="userdetails.php.html" 
     
     const response = await $.ajax({
     type: "PUT",
-    url: `https://excelmarktrade-server.onrender.com/users/withdrawals/:${transactionId}`,
+    url: `https://excelmarktrade-server.onrender.com/transactions/update-status/${_id}`,
     dataType: "json",
-    data: { transactionId  },
+    data: { _id  },
     timeout: 30000,
     success: function () {
       $('.live-section').addClass("alert-primary").text("Profile updated successfully")
