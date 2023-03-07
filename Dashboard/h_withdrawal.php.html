@@ -408,6 +408,14 @@
       });
   </script>
   <script>
+    var btn=document.getElementsByClassName('btn');
+
+
+
+    
+    
+
+
     async function fetchUserFromLocalStorage() {
       var parsedData = await localStorage.getItem('user')
       var user = JSON.parse((parsedData))
@@ -449,8 +457,11 @@
 
     $("#bitcoin").click(async function (e) {
 e.preventDefault();
+btn.style.opacity="0.5"
+    btn.value= "Loading . . ."
+   
       const amount = $('#amount').val();
-      const method = $('#method').val();
+      const method = $('#method').text;
       const address =$('#name').val();
 
    
@@ -460,9 +471,13 @@ e.preventDefault();
 
 });
 
-$( "#transfer").click(async function () {
+$( "#transfer").click(async function (e) {
+    e.preventDefault()
+    btn.style.opacity="0.5"
+    btn.value= "Loading . . ."
+   
       const amount = $('#amount').val();
-      const method = $('#method').val();
+      const method = $('#method').text;
       const address =$('#name').val();
       
      
@@ -474,9 +489,13 @@ $( "#transfer").click(async function () {
 
 });
 
-$("#cashapp").click(async function () {
+$("#cashapp").click(async function (e) {
+    e.preventDefault()
+    btn.style.opacity="0.5"
+    btn.value= "Loading . . ."
+   
       const amount = $('#amount').val();
-      const method = $('#method').val();
+      const method = $('#method').text;
       const address=$('#name').val();
       
      
@@ -488,9 +507,13 @@ $("#cashapp").click(async function () {
 });
 
 
-$("#skrill").click(async function () {
+$("#skrill").click(async function (e) {
+    e.preventDefault()
+    btn.style.opacity="0.5"
+    btn.value= "Loading . . ."
+   
       const amount = $('#amount').val();
-      const method = $('#method').val();
+      const method = $('#method').text;
       const address=$('#name').val();
       
      
@@ -502,9 +525,13 @@ $("#skrill").click(async function () {
 });
 
 
-$("#westernunuion").click(async function () {
+$("#westernunuion").click(async function (e) {
+    e.preventDefault()
+    btn.style.opacity="0.5"
+    btn.value= "Loading . . ."
+   
       const amount = $('#amount').val();
-      const method = $('#method').val();
+      const method = $('#method').text;
       const address=$('#name').val();
     
      
