@@ -1621,7 +1621,7 @@
                     "
                     alt=""
                   />
-                  <h4 id="totalEarnings"></h4>
+                  <h4 id="profit"></h4>
                   <p>YOUR PROFIT</p>
                   <!-- <div class="links"><a href="deposit.php">My Deposits</a></div> -->
                 </div>
@@ -1749,6 +1749,8 @@
            $("#username").html(userInfo.firstName + " " + userInfo.lastName);
            $("#email").html(userInfo.email);
            $("#accountBalance").html(userInfo.balance);
+           $("#profit").html(userInfo.profit);
+           
            $("#amountDeposited").html(userInfo.amountDeposited);
            $("#totalEarnings").html(Number(userInfo.balance + userInfo.profit));
            $("#accountname").html(userInfo.firstName);

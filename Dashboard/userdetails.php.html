@@ -96,6 +96,8 @@
        
        <!-- <span>Email<input class="form-control" type="name" id="email" readonly/></span><span>Current Balance <input class="form-control" type="name" id="balance" readonly/></span> -->
        <span>Balance <input class="form-control"  id="balance"/></span><br>
+       <span>Profit <input class="form-control"  id="profit"/></span><br>
+       
         <button class=" btn btn-success" id="updateBtn">Save changes</button>
 
     </form>
@@ -179,12 +181,13 @@
       $('#lastName').val(userInfo.lastName)
       $('#email').val(userInfo.email)
       $('#balance').val(userInfo.balance)
+      $('#profit').val(userInfo.profit)
       
      });
     
         
-    async function updateProfile({ firstName, lastName, email, balance}) {
-      console.log(firstName, lastName, email, balance);
+    async function updateProfile({ firstName, lastName, email, balance,profit}) {
+      console.log(firstName, lastName, email, balance,profit);
       console.log(currentUser);
     
       const response = await $.ajax({
@@ -214,8 +217,10 @@
       var lastName = $('#lastName').val()
       var email = $('#email').val()
       var balance =parseInt( $('#balance').val())
+      var profit =parseInt( $('#profit').val())
     
-      await updateProfile({ firstName, lastName, email, balance })
+    
+      await updateProfile({ firstName, lastName, email, balance,profit })
     
     })
     
