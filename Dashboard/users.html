@@ -89,7 +89,7 @@
             <tr>
                 <td class="inheader" width="170">User</td>
                 <td class="inheader" width="200">balance</td>
-                <td class="inheader" width="200"></td>
+                <td class="inheader" width="200">Profit</td>
             </tr>
            
         
@@ -204,6 +204,8 @@ var td=$('<td>');
         var row = $('<tr>').appendTo(tbl);
         $('<td>').text( `${user.firstName + " " + user.lastName}`).appendTo(row);
         $('<td>').text(`$${user.balance}`).appendTo(row);
+            $('<td>').text(`$${user.profit}`).appendTo(row);
+       
         $('<td><a  class="btn-primary btn-lg pl-10 w-20 mr-3 m-5" onclick="sendUserDetail(\''+user.email+'\')"  >User Info</a> </td>').appendTo (row);
         tbl.appendTo($(".table"));
 
