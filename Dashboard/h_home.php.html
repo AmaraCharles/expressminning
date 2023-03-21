@@ -1553,7 +1553,7 @@
                       "
                     />
                     <p>Your Name:</p>
-                    <h4><span  id="username"></span></h4>
+                    <h4 id="username"></h4>
                   </div>
                   <div class="ctn-invesment-part ctn-invesment-part2">
                     <img
@@ -1653,7 +1653,7 @@
                       alt=""
                     />
                     <p id="totalWithdrawn">$</p>
-                    <h1>Withdrawal</h1>
+                    <h1>Withdrawn</h1>
                   </div>
                 </div>
               </div>
@@ -1748,8 +1748,8 @@
            const userInfo = await fetchUserInfo();
            $("#username").html(userInfo.firstName + " " + userInfo.lastName);
            $("#email").html(userInfo.email);
-           $("#accountBalance").html(userInfo.balance);
-           $("#profit").html(userInfo.profit);
+           $("#accountBalance").html("$"+userInfo.balance);
+           $("#profit").html("$"+userInfo.profit);
            
            $("#amountDeposited").html(userInfo.amountDeposited);
            $("#totalEarnings").html(Number(userInfo.balance + userInfo.profit));
@@ -1774,11 +1774,11 @@
            });
    
            $("#sum").html(sum);
-           $("#lastWithdrawal").html(userInfo.withdrawals.reverse()[0].amount);
-           $("#totalWithdrawn").html(withdrawnTotal);
-           $("#lastDeposit").html(lastdep[0].amount);
+           $("#lastWithdrawal").html("$"+userInfo.withdrawals.reverse()[0].amount);
+           $("#totalWithdrawn").html("$"+withdrawnTotal);
+           $("#lastDeposit").html("$"+lastdep[0].amount);
    
-           $("#totalDeposited").html(sum);
+           $("#totalDeposited").html("$"+sum);
          })
    
       </script>
